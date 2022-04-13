@@ -5,6 +5,20 @@
     <title>Главная страница</title>
   </head>
   <body>
-    <h1>Главная страница</h1>
+    <h1>Добро пожаловать <br> {{ .Surname }} {{ .Name }}</h1>
+
+    {{ if eq .Name "А" }} <!-- ne (not equal) -->
+    <span>Hello!</span>
+    {{ else }}
+    <span>Привет!</span>
+    {{ end }}
+
+    <ul>
+      {{ range .Hobbies }}
+      <li><b>{{ . }}</b></li>
+      {{ else }}
+      <span>Ничем не увлекается</span>
+      {{ end }}
+    </ul>
   </body>
 </html>
